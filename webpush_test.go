@@ -1,7 +1,7 @@
 package webpush
 
 import (
-	"io/ioutil"
+	"io"
 	"net/http"
 	"reflect"
 	"strconv"
@@ -17,7 +17,7 @@ func (p testPusher) Do(req *http.Request) (*http.Response, error) {
 	resp := &http.Response{
 		StatusCode: p.code,
 		Header:     make(http.Header),
-		Body:       ioutil.NopCloser(nil),
+		Body:       io.NopCloser(nil),
 		Request:    req,
 	}
 	if p.code == http.StatusTooManyRequests {

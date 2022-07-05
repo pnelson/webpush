@@ -3,7 +3,6 @@ package main
 import (
 	"flag"
 	"fmt"
-	"io/ioutil"
 	"log"
 	"os"
 
@@ -41,7 +40,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	err = ioutil.WriteFile(*o, b, 0640)
+	err = os.WriteFile(*o, b, 0640)
 	if err != nil {
 		log.Fatal(err)
 	}
